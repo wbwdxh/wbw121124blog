@@ -17,7 +17,7 @@ const isLoading = ref(true);
 onMounted(async () => {
 	try {
 		const postName = props.props.name;
-		const response = await fetch(`/posts/${postName}.md`);
+		const response = await fetch(`./posts/${postName}.md`);
 		if (!response.ok) {
 			postContent.value = '文章未找到。';
 			isLoading.value = false;

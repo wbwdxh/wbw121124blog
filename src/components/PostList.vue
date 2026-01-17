@@ -1,5 +1,5 @@
 <script setup>
-const posts = await fetch('/postlist.json').then(res => res.json()).then(data => data.posts);
+const posts = await fetch('./postlist.json').then(res => res.json()).then(data => data.posts);
 </script>
 
 <template>

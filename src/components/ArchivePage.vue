@@ -6,7 +6,7 @@ const archives = ref({});
 
 onMounted(async () => {
 	try {
-		const data = await fetch('/postlist.json').then(res => res.json());
+		const data = await fetch('./postlist.json').then(res => res.json());
 		posts.value = data.posts;
 
 		// 按年月分组
