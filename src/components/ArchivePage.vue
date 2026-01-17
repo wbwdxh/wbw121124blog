@@ -41,7 +41,7 @@ onMounted(async () => {
 				</h3>
 				<ul class="space-y-4">
 					<li v-for="post in postsInMonth" :key="post.id" class="border-l-4 border-indigo-500 pl-4">
-						<a :href="`/?path=/post/${post.id}`"
+						<a :href="`?path=/post/${post.id}`"
 							class="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded transition-colors">
 							<h4 class="text-lg font-medium text-indigo-600 hover:underline">{{ post.title }}</h4>
 							<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ post.summary }}</p>

@@ -12,10 +12,11 @@
 		<h2 class="text-2xl font-bold mb-6">关于作者</h2>
 		<p class="text-gray-600 dark:text-gray-400 mb-4">
 			<span class="float-left mr-4 mb-4">
-				<img src="/792595.png" class="w-16 h-16 rounded-full mr-4 border-3 border-amber-500" />
+				<img src="792595.png" class="w-16 h-16 rounded-full mr-4 border-3 border-amber-500" />
 			</span>
 			<span class="pt-5 block">
-				&ensp;&ensp;&ensp;&ensp;我是 wbw121124，一名热爱算法竞赛的人。欢迎访问我的个人博客，在这里我会分享我的学习心得、编程经验以及生活点滴。希望你能在这里找到有价值的内容，并和我一起成长！
+				&ensp;&ensp;&ensp;&ensp;我是
+				wbw121124，一名热爱算法竞赛的人。欢迎访问我的个人博客，在这里我会分享我的学习心得、编程经验以及生活点滴。希望你能在这里找到有价值的内容，并和我一起成长！
 			</span>
 		</p>
 	</div>

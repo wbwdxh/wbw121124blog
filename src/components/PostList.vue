@@ -7,7 +7,7 @@ const posts = await fetch('./postlist.json').then(res => res.json()).then(data =
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 			<div v-for="post in posts" :key="post.id"
 				class="border-l-3 pl-2 border-indigo-500 hover:border-indigo-600 transition-shadow duration-300">
-				<a :href="`/?path=/post/${post.id}`" class="block">
+				<a :href="`?path=/post/${post.id}`" class="block">
 					<h3
 						class="text-xl font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 mb-2">
 						{{ post.title }}
