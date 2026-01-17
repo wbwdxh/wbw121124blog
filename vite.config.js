@@ -41,5 +41,7 @@ export default defineConfig({
 		},
 		cssCodeSplit: true,
 		chunkSizeWarningLimit: 1000
-	}
+	},
+	// 设置基础路径，适用于部署到子路径的情况
+	base: '/wbw121124blog/'
 })
