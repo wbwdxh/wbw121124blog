@@ -2,7 +2,7 @@ name: Optimized Blog CI/CD
  
 on:
   push:
-    branches: [main]
+    branches: [main,master]
     paths:
       - '*.json'
       - '**.js'
