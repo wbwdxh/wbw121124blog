@@ -108,3 +108,47 @@ p:last-child {
 	margin-left: 0.5rem;
 	opacity: 1;
 }
+
+.mkd blockquote {
+	border-left: 4px solid #d1d5db;
+	padding-left: 1rem;
+	color: #6b7280;
+	margin-bottom: 0.5rem;
+}
+
+.mkd ul,
+.mkd ol {
+	margin-left: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+/* 多层嵌套列表改变风格 */
+.mkd ul {
+	list-style: disc;
+}
+
+.mkd ul ul {
+	list-style-type: circle;
+}
+
+.mkd ul ul ul {
+	list-style-type: square;
+}
+
+.mkd ol {
+	list-style: decimal;
+}
+
+.mkd ol ol {
+	list-style-type: lower-alpha;
+}
+
+.mkd ol ol ol {
+	list-style-type: lower-roman;
+}
+
+.mkd table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1rem;
+}
