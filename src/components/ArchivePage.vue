@@ -30,30 +30,36 @@ onMounted(async () => {
 
 <template>
 	<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 hover:shadow-md mt-6">
-		<h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-white">文章归档</h2>
+		<h2 class="text-2xl font-bold mb-6">文章归档</h2>
 		<div v-if="Object.keys(archives).length === 0" class="text-center py-8">
 			<p class="text-gray-600 dark:text-gray-400">暂无文章</p>
 		</div>
 		<div v-else>
 			<div v-for="(postsInMonth, monthKey) in archives" :key="monthKey" class="mb-8">
-				<h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200 border-b pb-2">
+				<h3 class="text-xl font-semibold mb-4 border-b pb-2">
 					{{ monthKey.replace('-', '年') }}月
 				</h3>
-				<ul class="space-y-4">
-					<li v-for="post in postsInMonth" :key="post.id" class="border-l-4 border-indigo-500 pl-4">
+				<div class="space-y-4 w-full">
+					<div v-for="post in postsInMonth" :key="post.id" class="border-l-3 border-gray-300 pl-2 m-0">
 						<a :href="`?path=/post/${post.id}`"
 							class="block hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded transition-colors">
-							<h4 class="text-lg font-medium text-indigo-600 hover:underline">{{ post.title }}</h4>
-							<p class="text-sm text-gray-600 dark:text-gray-400 mt-1">{{ post.summary }}</p>
-							<div class="flex items-center mt-2 text-xs text-gray-500 dark:text-gray-400">
+							<h3
+								class="text-xl font-bold text-indigo-600 dark:text-indigo-500 hover:text-indigo-800 dark:hover:text-indigo-300 mb-2">
+								{{ post.title }}
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 mb-3 line-clamp-3">{{ post.summary }}</p>
+							<div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
 								<span>{{ post.date }}</span>
-								<span v-if="post.tags && post.tags.length" class="ml-4">
-									标签: {{ post.tags.join(', ') }}
-								</span>
+								<div class="flex flex-wrap gap-1">
+									<span v-for="tag in post.tags" :key="tag"
+										class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded-full text-xs">
+										{{ tag }}
+									</span>
+								</div>
 							</div>
 						</a>
-					</li>
-				</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

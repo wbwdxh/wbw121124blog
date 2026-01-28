@@ -1,12 +1,20 @@
 @import "tailwindcss";
-@import "highlight.js/styles/github.css";
 @import "katex/dist/katex.min.css";
+@import "highlight.js/styles/github.css";
 
-p:last-child {
-	margin-bottom: 0;
+:root {
+	--text-color: #444;
+	--link-hover-color: #111;
+	--blockquote-color: #666;
 }
 
 @media (prefers-color-scheme: dark) {
+	:root {
+		--text-color: #ddd;
+		--link-hover-color: #fff;
+		--blockquote-color: #bbb;
+	}
+
 	* {
 		color-scheme: dark;
 	}
@@ -14,17 +22,46 @@ p:last-child {
 	@import "highlight.js/styles/github-dark-dimmed.css";
 }
 
+body {
+	font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+	color: var(--text-color);
+}
+
+.mkd :first-child {
+	margin-top: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
 /* 代码样式 */
-.shiki,
-.hljs {
+.mkd .shiki,
+.mkd pre code.hljs,
+.mkd pre code {
 	display: block;
 	font-family: 'Fira Code', monospace;
 	font-size: 16px;
 	line-height: 1.5;
-	padding: 1em;
+	padding: 10px;
 	border-radius: 8px;
 	overflow-x: auto;
-	margin-bottom: 0.5rem;
+	padding-top: 20px;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+}
+
+.mkd .shiki::before,
+.mkd pre code.hljs::before,
+.mkd pre code::before {
+	background: #fc625d;
+	box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+	margin-top: -14px;
+	position: absolute;
+	border-radius: 50%;
+	content: ' ';
+	height: 12px;
+	width: 12px;
 }
 
 /* markdown 渲染样式 */
@@ -34,69 +71,69 @@ p:last-child {
 .mkd h4,
 .mkd h5,
 .mkd h6 {
+	font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
 	font-weight: bold;
-	margin-bottom: 0.5rem;
-	line-height: 1.2;
-}
-
-@media (min-height: 301px) {
-
-	.mkd h1,
-	.mkd h2,
-	.mkd h3,
-	.mkd h4,
-	.mkd h5,
-	.mkd h6 {
-		scroll-margin-top: calc(var(--spacing) * 4 + 1.25em + 5px);
-	}
+	line-height: 1.5;
+	margin: 30px 0 15px;
+	scroll-margin-top: calc(var(--spacing) * 4 + 35px);
 }
 
 .mkd h1 {
-	font-size: 2.25em;
-}
-
-.mkd h2 {
-	font-size: 1.875em;
-}
-
-.mkd h3 {
 	font-size: 1.5em;
 }
 
-.mkd h4 {
+.mkd h2 {
+	font-size: 1.375em;
+}
+
+.mkd h3 {
 	font-size: 1.25em;
 }
 
-.mkd h5 {
+.mkd h4 {
 	font-size: 1.125em;
 }
 
-.mkd h6 {
+.mkd h5 {
 	font-size: 1em;
 }
 
+.mkd h6 {
+	font-size: 0.875em;
+}
+
+.mkd h1,
+.mkd h2 {
+	border-bottom: 1px solid #eee;
+}
+
+.mkd h3 {
+	border-bottom: 1px dotted #eee;
+}
+
 .mkd p {
-	margin-bottom: 0.5em;
-	line-height: 1.6;
+	line-height: 2;
 	font-size: 1rem;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
 }
 
 .mkd a {
-	color: #3b82f6;
-	text-decoration: underline;
+	text-decoration: none;
+	border-bottom: 1px solid #999;
+}
+
+.mkd a:hover {
+	color: var(--link-hover-color);
+	border-bottom: 1px solid var(--link-hover-color);
 }
 
 /* header-anchor 的动画 */
 .header-anchor {
 	opacity: 0;
 	text-decoration: none !important;
-	text-decoration-color: transparent !important;
-	transition: opacity 0.2s, margin-left 0.2s, text-decoration-color 0.1s;
-}
-
-.header-anchor:hover {
-	text-decoration: underline !important;
-	text-decoration-color: currentColor !important;
+	transition: opacity 0.2s, margin-left 0.2s;
+	padding-bottom: 0;
 }
 
 .mkd h1:hover .header-anchor,
@@ -109,10 +146,10 @@ p:last-child {
 	opacity: 1;
 }
 
-.mkd blockquote {
+blockquote {
 	border-left: 4px solid #d1d5db;
 	padding-left: 1rem;
-	color: #6b7280;
+	color: var(--blockquote-color);
 	margin-bottom: 0.5rem;
 }
 
