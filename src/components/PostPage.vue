@@ -12,10 +12,11 @@ import { onMounted, ref } from 'vue';
 import { loadMarkdownIt } from '/src/main.js';
 const postContent = ref('加载中...');
 const isLoading = ref(true);
+const metadata = ref({ ready: false });
 
 // 解析 frontmatter
-function parseFrontmatter(content) {
-	if (!content.startsWith("<!--")) return { metadata: {}, content }
+function parseFrontmatter(content, postName) {
+	if (!content.startsWith("<!--")) return { metadata: { title: postName }, content }
 
 	// kmp 算法
 	function getNext(pattern) {
@@ -74,11 +75,11 @@ onMounted(async () => {
 			return;
 		}
 		const text = await response.text();
-		const { metadata, content: markdown } = parseFrontmatter(text);
-		console.log(metadata);
+		const { metadata: _metadata, content: markdown } = parseFrontmatter(text, postName);
 		const module = await loadMarkdownIt();
 		const mdit = await module.initMarkdownIt();
 		postContent.value = mdit.render(markdown);
+		metadata.value = _metadata;
 		isLoading.value = false;
 	} catch (error) {
 		postContent.value = '加载文章时出错：' + error.message + '\n' + error.stack;
@@ -90,6 +91,14 @@ onMounted(async () => {
 
 <template>
 	<main class="mkd component mt-6">
+		<div v-if="metadata.ready != false || metadata.ready == undefined" class="metadata">
+			<h2>{{ metadata.title }}</h2>
+			<p>作者: {{ metadata.author || 'wbw121124' }}</p>
+			<p>发布时间: {{ metadata.date || 'Unknow' }}</p>
+			<p>协议: <a
+					:href="'https://creativecommons.org/licenses/' + (metadata.license || 'BY-NC-SA') + '/4.0/deed.zh-hans'">CC&ThinSpace;
+					{{ metadata.license || 'BY-NC-SA' }}&ThinSpace;4.0</a></p>
+		</div>
 		<div v-if="isLoading" class="text-center py-8">
 			<div
 				class="animate-spin rounded-full h-8 w-8 border-2 border-transparent border-b-gray-900 dark:border-b-white mx-auto">

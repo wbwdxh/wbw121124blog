@@ -252,3 +252,26 @@ header {
 	border-radius: calc(infinity * 1px);
 	font-size: var(--text-xs);
 }
+
+.metadata {
+	align-self: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	margin-bottom: 2rem;
+
+	& h2 {
+		font-size: 1.75em;
+		margin-bottom: 0.5rem;
+		border-bottom: none;
+	}
+
+	& p {
+		color: var(--blockquote-color);
+		margin-block: 0.25rem;
+		font-size: var(--text-sm);
+		line-height: 1;
+	}
+}
