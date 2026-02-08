@@ -1,5 +1,5 @@
 <template>
-	<div class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 hover:shadow-md">
+	<div class="component">
 		<h2 class="text-2xl font-bold mb-6">欢迎来到 wbw121124blog</h2>
 		<p class="text-gray-600 dark:text-gray-400 mb-4">这是一个基于 Vue 3 和 Vite 构建的博客网站。</p>
 		<p>
@@ -8,7 +8,7 @@
 	</div>
 
 	<!--作者介绍-->
-	<main class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 hover:shadow-md mt-6">
+	<main class="component mt-6">
 		<h2 class="text-2xl font-bold mb-6">关于作者</h2>
 		<div class="text-gray-600 dark:text-gray-400 mb-4">
 			<span class="float-left mr-4 mb-4">

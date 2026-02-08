@@ -4,7 +4,7 @@ const PostList = defineAsyncComponent(() => import('./PostList.vue'));
 </script>
 
 <template>
-	<main class="bg-white dark:bg-gray-800 rounded-lg shadow-sm p-6 hover:shadow-md">
+	<main class="component">
 		<h2 class="text-2xl font-bold mb-6">欢迎来到 wbw121124blog</h2>
 		<!--计数器 ID:wp9umuzk 控制面板访问密钥:gap0vog1-->
 		<img src="https://w.saobby.com/w/wp9umuzk" height="0" width="0"

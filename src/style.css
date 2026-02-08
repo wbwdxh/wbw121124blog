@@ -3,6 +3,34 @@
 @import "highlight.js/styles/github.css";
 
 :root {
+	--color-primary: #646cff;
+	--color-primary-hover: #535bf2;
+	--color-border: #eaeaea;
+	--color-bg: #ffffff;
+	--color-bg-alt: #f8f8f8;
+	--color-code-bg: #f5f5f5;
+	--color-tag-bg: #f0f0f0;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-primary: #646cff;
+		--color-primary-hover: #747bff;
+		--color-border: #333;
+		--color-bg: #1a1a1a;
+		--color-bg-alt: #242424;
+		--color-code-bg: #2a2a2a;
+		--color-tag-bg: #333;
+	}
+}
+
+#app {
+	background-color: var(--color-bg);
+	color: var(--text-color);
+	min-height: 100vh;
+}
+
+:root {
 	--text-color: #444;
 	--link-hover-color: #111;
 	--blockquote-color: #666;
@@ -49,6 +77,7 @@ p:last-child {
 	padding-top: 20px;
 	margin-block-start: 1em;
 	margin-block-end: 1em;
+	background-color: var(--color-code-bg);
 }
 
 .mkd .shiki::before,
@@ -188,4 +217,21 @@ blockquote {
 	width: 100%;
 	border-collapse: collapse;
 	margin-bottom: 1rem;
+}
+
+header {
+	background-color: var(--color-bg-alt);
+}
+
+.component {
+	background-color: var(--color-bg-alt);
+	border-radius: var(--radius-lg);
+	box-shadow: var(--shadow-sm);
+	padding: calc(var(--spacing) * 6);
+
+	&:hover {
+		@media (hover: hover) {
+			box-shadow: var(--shadow-lg);
+		}
+	}
 }

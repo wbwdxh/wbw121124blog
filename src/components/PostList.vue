@@ -4,8 +4,7 @@ const posts = await fetch('./postlist.json').then(res => res.json()).then(data =
 
 <template>
 	<div v-for="post in posts" :key="post.id" class=" transition-shadow duration-300 mt-6">
-		<a :href="`?path=/post/${post.id}`"
-			class="block shadow-sm hover:shadow-md  bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 p-6 rounded-lg transition-colors">
+		<a :href="`?path=/post/${post.id}`" class="block component transition-colors">
 			<h3 class="text-xl font-bold text-indigo-600 dark:text-indigo-500 mb-2">
 				{{ post.title }}
 			</h3>
